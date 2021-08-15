@@ -36,6 +36,7 @@ class _BoletaVistaState extends State<BoletaVista> {
                 return Column(
                   children:[
                     ListTile(
+                      leading: Icon(Icons.anchor_rounded),
                       title:Text('Identificador:   '+item.id.toString(),)
                       ),
                     ListTile(

@@ -32,25 +32,34 @@ class _VistaSolicitudesState extends State<VistaSolicitudes> {
                   children: [
                     ListTile(
                       leading: Icon(Icons.chevron_right),
-                      title:  Text('Identificados de Solicitud:  '+ item.id.toString()),
+                      title:  Text('Identificador de la  Solicitud:  '+ item.id.toString()),
                       //subtitle: Text(item.sucursal),
                     ),
                     ListTile(
-                      
+                      leading: Icon(Icons.date_range_sharp),
                       title:  Text('Fecha de la solicitud:  '+ item.fechaIni.toString()),
                       //subtitle: Text(item.sucursal),
                     ),
                     ListTile(
+                      leading: Icon(Icons.date_range_rounded),
                       title:  Text('Fecha Final de la vacacion:  '+ item.fechaFin.toString()),
                     ),
                     ListTile(
-                      title:  Text('Observacion:  '+  item.observacion),
+                      leading: Icon(Icons.remove_red_eye_outlined),
+                      title:  Text('Motivo:  '+  item.observacion),
                     ),
                     ListTile(
+                      leading: Icon(Icons.view_day_sharp),
                       title:  Text('Dias de vacacion:  '+ item.dias.toString()),
                     ),
                     ListTile(
+                      leading: Icon(Icons.toggle_on),
                       title:  Text('Estado de la Solicitud:  '+ item.estado),
+                      
+                    ),
+                     ListTile(
+                      
+                      title:  Text('---------------------------------------------------------------'),
                       
                     ),
                     
