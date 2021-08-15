@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rrhh/Drawer/widget_drawer.dart';
+import 'package:rrhh/models/solicitudvacaciones.dart';
+import 'package:rrhh/services/listadovacaciones_services.dart';
 
 class VistaSolicitudes extends StatefulWidget {
   VistaSolicitudes({Key? key}) : super(key: key);
@@ -9,6 +11,7 @@ class VistaSolicitudes extends StatefulWidget {
 }
 
 class _VistaSolicitudesState extends State<VistaSolicitudes> {
+  
   @override
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
@@ -16,9 +19,58 @@ class _VistaSolicitudesState extends State<VistaSolicitudes> {
         title: Text('Listado de Solicitudes Realizadas'),
       ),
       drawer: MenuLateral(),
-    )
-    
+       body: FutureBuilder<List<Vacacione>>(
+        future: ListadoVacacionService().postsolicitud(),
+        builder: (BuildContext context, AsyncSnapshot<List<Vacacione>> snapshot) {
+          if (snapshot.hasData) {
+            return ListView.builder(
+              physics: const BouncingScrollPhysics(),
+              itemCount: snapshot.data!.length,
+              itemBuilder: (BuildContext context, int index) {
+                Vacacione item = snapshot.data![index];
+                 return Column(
+                  children: [
+                    ListTile(
+                      leading: Icon(Icons.chevron_right),
+                      title:  Text('Identificados de Solicitud:  '+ item.id.toString()),
+                      //subtitle: Text(item.sucursal),
+                    ),
+                    ListTile(
+                      
+                      title:  Text('Fecha de la solicitud:  '+ item.fechaIni.toString()),
+                      //subtitle: Text(item.sucursal),
+                    ),
+                    ListTile(
+                      title:  Text('Fecha Final de la vacacion:  '+ item.fechaFin.toString()),
+                    ),
+                    ListTile(
+                      title:  Text('Observacion:  '+  item.observacion),
+                    ),
+                    ListTile(
+                      title:  Text('Dias de vacacion:  '+ item.dias.toString()),
+                    ),
+                    ListTile(
+                      title:  Text('Estado de la Solicitud:  '+ item.estado),
+                      
+                    ),
+                    
+                  ],
+                );
+                  
+              },
+            );
+          } else {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
+      ),
+    ),
     );
+  }
 
   }
-}
+
+     
+                

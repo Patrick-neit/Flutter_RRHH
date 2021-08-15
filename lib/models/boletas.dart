@@ -2,7 +2,6 @@
 //
 //     final boletasDatos = boletasDatosFromMap(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 BoletasDatos boletasDatosFromMap(String str) => BoletasDatos.fromMap(json.decode(str));

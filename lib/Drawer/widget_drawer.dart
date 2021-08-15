@@ -28,20 +28,8 @@ class MenuLateral extends StatelessWidget {
           Navigator.pushNamed(context, '/dashboard');
         },
       ),    
-      ListTile( //Asi definimos nuevos campos para interactuar y redireccionarlos a nuestras rutas
-        leading: Icon(Icons.person),
-        title: Text('Mis Empleados'),
-        onTap: (){
-          Navigator.pushNamed(context, '/listadoempleado');
-        },
-      ),
-      ListTile( //Asi definimos nuevos campos para interactuar y redireccionarlos a nuestras rutas
-        leading: Icon(Icons.airline_seat_flat),
-        title: Text('Personas'),
-        onTap: (){
-          Navigator.pushNamed(context, '/listadopersona');
-        },
-      ),
+      
+      
       ListTile( //Asi definimos nuevos campos para interactuar y redireccionarlos a nuestras rutas
         leading: Icon(Icons.analytics_rounded),
         title: Text('Mis Datos'),

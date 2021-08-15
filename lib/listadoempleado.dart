@@ -14,34 +14,16 @@ class ListadoEmpleado extends StatefulWidget {
 
 class _ListadoEmpleadoState extends State<ListadoEmpleado> {
   @override
-  void didUpdateWidget(ListadoEmpleado oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    setState(() {});
-  }
 
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Mis Datos'),
         actions: <Widget>[
-        //  ElevatedButton(
-          //    style: ButtonStyle(
-            //    backgroundColor: MaterialStateProperty.all<Color>(
-              //    Theme.of(context).primaryColor,
-                //),
-              //),
-              //onPressed: () {
-                //Navigator.push(
-                  //context,
-                  //MaterialPageRoute(builder: (context) => ListadoEmpleados()),
-                //);
-              //},
-              //child: Text("Ver Empleado")),
         ],
       ),
       
       drawer: MenuLateral(), //Importo menu lateral desde la carpeta drawer
-      
       body: FutureBuilder<EmpleadoDatos?>(
         future: EmpleadosDatosService().showdatosemp(),
         builder: (BuildContext context, AsyncSnapshot<EmpleadoDatos?> snapshot) {
@@ -51,35 +33,36 @@ class _ListadoEmpleadoState extends State<ListadoEmpleado> {
              // itemCount: snapshot.data!.length,
               itemBuilder: (BuildContext context, int index) {
                 EmpleadoDatos item = snapshot.data!;
-                return Dismissible(
-                  key: UniqueKey(),
-                  background: Container(
-                    color: Colors.red,
-                  ),
-                  onDismissed: (DismissDirection direction) {
-                    // ClientDatabaseProvider.db.deleteClientWithId(item.id);
-                  },
-                  child: ListTile(
-                    
-                    title: Text(item.profesion),
-                    subtitle: Text(item.sucursal),
-                    leading: CircleAvatar(
-                      child: Text(item.sueldoBasico),
-                      
+                return Column(
+                  children: [
+                    ListTile(
+                      leading: Icon(Icons.anchor_rounded),
+                      title:  Text('Cargo:  '+ item.cargo),
+                      //subtitle: Text(item.sucursal),
                     ),
-                  
-                    onTap: () {
-                      // Navigator.of(context).push(
-                      //   MaterialPageRoute(
-                      //     builder: (BuildContext context) => AddEditClientPage(
-                      //       true,
-                      //       client: item,
-                      //     ),
-                      //   ),
-                      // );
-                    },
-                  ),
+                    ListTile(
+                      leading: Icon(Icons.money_off_rounded),
+                      title:  Text('Sueldo Basico:  '+ item.sueldoBasico),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.contact_mail),
+                      title:  Text('Correo:  '+  item.correoCorporativo),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.person_add_alt_outlined),
+                      title:  Text('Nombre:  '+ item.persona),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.house_siding),
+                      title:  Text('Lugar de trabajo:  '+ item.sucursal),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.date_range_rounded),
+                      title:  Text('Fecha de retiro:  '+ item.fechaFinal.toString()),
+                    ),
+                  ],
                 );
+                  
               },
             );
           } else {
@@ -93,3 +76,5 @@ class _ListadoEmpleadoState extends State<ListadoEmpleado> {
   }
 
   }
+
+     
