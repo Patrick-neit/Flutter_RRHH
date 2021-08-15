@@ -1,35 +1,36 @@
 // To parse this JSON data, do
 //
-//     final boletasDatos = boletasDatosFromMap(jsonString);
+//     final boleta = boletaFromMap(jsonString);
 
+import 'package:meta/meta.dart';
 import 'dart:convert';
 
-BoletasDatos boletasDatosFromMap(String str) => BoletasDatos.fromMap(json.decode(str));
+Boleta boletaFromMap(String str) => Boleta.fromMap(json.decode(str));
 
-String boletasDatosToMap(BoletasDatos data) => json.encode(data.toMap());
+String boletaToMap(Boleta data) => json.encode(data.toMap());
 
-class BoletasDatos {
-    BoletasDatos({
-
+class Boleta {
+    Boleta({
+        required this.success,
         required this.boletas,
     });
 
+    final bool success;
+    final List<BoletaElement> boletas;
 
-    final List<Boleta> boletas;
-
-    factory BoletasDatos.fromMap(Map<String, dynamic> json) => BoletasDatos(
-
-        boletas: List<Boleta>.from(json["boletas"].map((x) => Boleta.fromMap(x))),
+    factory Boleta.fromMap(Map<String, dynamic> json) => Boleta(
+        success: json["success"],
+        boletas: List<BoletaElement>.from(json["boletas"].map((x) => BoletaElement.fromMap(x))),
     );
 
     Map<String, dynamic> toMap() => {
-
+        "success": success,
         "boletas": List<dynamic>.from(boletas.map((x) => x.toMap())),
     };
 }
 
-class Boleta {
-    Boleta({
+class BoletaElement {
+    BoletaElement({
         required this.id,
         required this.empleadoId,
         required this.nombres,
@@ -42,7 +43,7 @@ class Boleta {
         required this.periodo,
         required this.createdAt,
         required this.pagado,
-        required this.fechaPago,
+        this.fechaPago,
     });
 
     final int id;
@@ -55,11 +56,11 @@ class Boleta {
     final String liquidoPagable;
     final String cargo;
     final String periodo;
-    final DateTime createdAt;
+    final String createdAt;
     final int pagado;
-    final DateTime fechaPago;
+    final String? fechaPago;
 
-    factory Boleta.fromMap(Map<String, dynamic> json) => Boleta(
+    factory BoletaElement.fromMap(Map<String, dynamic> json) => BoletaElement(
         id: json["id"],
         empleadoId: json["empleado_id"],
         nombres: json["nombres"],
@@ -70,7 +71,7 @@ class Boleta {
         liquidoPagable: json["liquido_pagable"],
         cargo: json["cargo"],
         periodo: json["periodo"],
-        createdAt: DateTime.parse(json["created_at"]),
+        createdAt: json["created_at"],
         pagado: json["pagado"],
         fechaPago: json["fecha_pago"],
     );
@@ -86,8 +87,8 @@ class Boleta {
         "liquido_pagable": liquidoPagable,
         "cargo": cargo,
         "periodo": periodo,
-        "created_at": createdAt.toIso8601String(),
+        "created_at": createdAt,
         "pagado": pagado,
-        "fecha_pago": fechaPago,
+        "fecha_pago": fechaPago ,
     };
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rrhh/variables.dart';
 
 import 'Drawer/widget_drawer.dart';
 
@@ -15,7 +16,7 @@ class _DashboardState extends State<Dashboard> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('NICE TO SEE YOU AGAIN'),
+          title: Text('Bienvenido '+nombreEmpleadoAutentificado),
         ),
         //backgroundColor: Colors.tealAccent,
         drawer:MenuLateral(),  

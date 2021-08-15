@@ -24,15 +24,15 @@ class _BoletaVistaState extends State<BoletaVista> {
       
       drawer: MenuLateral(), //Importo menu lateral desde la carpeta drawer
       
-      body: FutureBuilder<List<Boleta>>(
+      body: FutureBuilder<List<BoletaElement>>(
         future: BoletasService().getBoletas(),
-        builder: (BuildContext context, AsyncSnapshot<List<Boleta>> snapshot) {
+        builder: (BuildContext context, AsyncSnapshot<List<BoletaElement>> snapshot) {
           if (snapshot.hasData) {
             return ListView.builder(
               physics: const BouncingScrollPhysics(),
               itemCount: snapshot.data!.length,
               itemBuilder: (BuildContext context, int index) {
-                Boleta item = snapshot.data![index];
+                BoletaElement item = snapshot.data![index];
                 return Column(
                   children:[
                     ListTile(

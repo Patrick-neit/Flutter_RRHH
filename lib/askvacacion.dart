@@ -5,6 +5,7 @@ import 'package:rrhh/Drawer/widget_drawer.dart';
 import 'package:rrhh/models/vacaciones.dart';
 import 'package:rrhh/services/vacaciones_service.dart';
 import 'package:http/http.dart' as http;
+import 'package:rrhh/variables.dart';
 
 class VacacionVista extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class VacacionVista extends StatefulWidget {
 }
 
 class _VacacionVistaState extends State<VacacionVista> {
-  var empleado_id = "124";
+  String empleado_id = idEmpleadoAutentificado.toString();
   TextEditingController controllerFini = new TextEditingController();
   TextEditingController controllerFin = new TextEditingController();
   TextEditingController controllerObs = new TextEditingController();
@@ -222,7 +223,7 @@ class _VacacionVistaState extends State<VacacionVista> {
               bool estado =
                   await new VacacionesService().solivacacion(vacacion);
               if (estado) {
-                Navigator.pushNamed(context,'/dashboard'); //agregar vista listado solicitud (routes)
+                Navigator.pushNamed(context,'/listadosolicitud'); //agregar vista listado solicitud (routes)
               } else {
                 setState(() {
                   mensaje = "Error!";
@@ -231,18 +232,11 @@ class _VacacionVistaState extends State<VacacionVista> {
             } else {/// alert, mensaje que diga "los dias solicitados es mayor a los dias que disponibles de vacaciones"
                 showDialog(
                   context: context,
-                  barrierDismissible: false,
+                  barrierDismissible: true,
                   builder: (context)=> AlertDialog(
                     title: Text('ERROR! Ya no tienes dias disponibles para tu vacacion'),
-                    
                     content: Text('Dias solicitados es mayor a los dias  disponibles'),
-                    actions: <Widget>[
-                      // ignore: deprecated_member_use
-                      FlatButton(onPressed: (){
-                            Navigator.pushNamed(context, '/askvacacion');
-                      },
-                       child: Text('Volver'))
-                    ],
+                    
                     //backgroundColor: Colors.redAccent,
                     //shape: CircleBorder(),
                   ),

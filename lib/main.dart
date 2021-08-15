@@ -6,7 +6,8 @@ import 'package:rrhh/listadopersona.dart';
 import 'dart:convert'; //Importamos libreria de dart a json
 import 'package:http/http.dart' as http;
 import 'package:rrhh/askvacacion.dart';
-import 'package:rrhh/listadosolicitud.dart'; //Redefino mi libreria
+import 'package:rrhh/listadosolicitud.dart';
+import 'package:rrhh/variables.dart'; //Redefino mi libreria
 
 void main() => runApp(LoginApp());
 String username = '';
@@ -67,11 +68,11 @@ class _LoginPageState extends State<LoginPage> {
     print(datauserEmp['id']);
     if (datauserEmp['success']) {
       //var id = datauserEmp['id'];
-      
+      idEmpleadoAutentificado = datauserEmp['id'];
+      nombreEmpleadoAutentificado=datauserEmp['nombre'];
       Navigator.pushReplacementNamed(context, '/dashboard');
       setState(() {
-        username = datauserEmp[
-            'nombre']; 
+        username = datauserEmp['nombre']; 
       });
     } else {
       setState(() {
