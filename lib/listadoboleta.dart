@@ -57,26 +57,27 @@ class _BoletaVistaState extends State<BoletaVista> {
                       leading: Icon(Icons.charging_station_rounded),
                       title:Text('Cargo:   '+item.cargo)
                     ),
-                    ListTile(
-                      leading: Icon(Icons.money_rounded),
-                      title:Text('Haber Basico:   '+item.haberBasico+ ' Bs')
-                    ),
+                    
                           ListTile(
                       
-                      title:  Text('     '+ '\n\n'),
+                      title:  Text('______________________________'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.money_rounded),
+                      title:Text('-- '+'Haber Basico:   '+item.haberBasico+ ' Bs')
                     ),
                     
                     ListTile(
                       leading: Icon(Icons.money_sharp),
-                      title:Text('    '+'Bono:   '+item.bono.toString()+' Bs')
+                      title:Text('-- '+'Bono:   '+item.bono.toString()+' Bs')
                     ),
                     ListTile(
                       leading: Icon(Icons.mood_bad),
-                      title:Text('    '+'Descuento:   '+item.descuento.toString()+ ' Bs')
+                      title:Text('-- '+'Descuento:   '+item.descuento.toString()+ ' Bs')
                     ),
                     ListTile(
                       leading: Icon(Icons.date_range_sharp),
-                      title:Text('    '+'Anticipo:   '+item.anticipo.toString()+' Bs')
+                      title:Text('-- '+'Anticipo:   '+item.anticipo.toString()+' Bs')
                     
                     ),
                     ListTile(
@@ -85,7 +86,7 @@ class _BoletaVistaState extends State<BoletaVista> {
                     ),
                     ListTile(
                       leading: Icon(Icons.money_outlined),
-                      title:Text('    '+'Salario Neto:   '+item.liquidoPagable+ ' Bs')
+                      title:Text('-- '+'Salario Neto:   '+item.liquidoPagable+ ' Bs')
                     ),
                     
                     ListTile(
