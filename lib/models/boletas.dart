@@ -2,7 +2,6 @@
 //
 //     final boleta = boletaFromMap(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 Boleta boletaFromMap(String str) => Boleta.fromMap(json.decode(str));
@@ -38,12 +37,16 @@ class BoletaElement {
         required this.segundoApellido,
         required this.ci,
         required this.ciexp,
+        required this.haberBasico,
+        required this.bono,
+        required this.descuento,
+        required this.anticipo,
         required this.liquidoPagable,
         required this.cargo,
         required this.periodo,
-        required this.createdAt,
+        
         required this.pagado,
-        this.fechaPago,
+         this.fechaPago,
     });
 
     final int id;
@@ -53,10 +56,13 @@ class BoletaElement {
     final String segundoApellido;
     final String ci;
     final String ciexp;
+    final String haberBasico;
+    final String bono;
+    final String descuento;
+    final String anticipo;
     final String liquidoPagable;
     final String cargo;
     final String periodo;
-    final String createdAt;
     final int pagado;
     final String? fechaPago;
 
@@ -68,10 +74,14 @@ class BoletaElement {
         segundoApellido: json["segundo_apellido"],
         ci: json["ci"],
         ciexp: json["ciexp"],
+        haberBasico: json["haber_basico"],
+        bono: json["bono"],
+        descuento: json["descuento"],
+        anticipo: json["anticipo"],
         liquidoPagable: json["liquido_pagable"],
         cargo: json["cargo"],
         periodo: json["periodo"],
-        createdAt: json["created_at"],
+        
         pagado: json["pagado"],
         fechaPago: json["fecha_pago"],
     );
@@ -84,11 +94,15 @@ class BoletaElement {
         "segundo_apellido": segundoApellido,
         "ci": ci,
         "ciexp": ciexp,
+        "haber_basico": haberBasico,
+        "bono": bono,
+        "descuento": descuento,
+        "anticipo": anticipo,
         "liquido_pagable": liquidoPagable,
         "cargo": cargo,
         "periodo": periodo,
-        "created_at": createdAt,
+        
         "pagado": pagado,
-        "fecha_pago": fechaPago ,
+        "fecha_pago": fechaPago,
     };
 }
