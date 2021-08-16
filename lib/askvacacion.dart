@@ -54,7 +54,7 @@ class _VacacionVistaState extends State<VacacionVista> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Please Fill The Form'),
+          title: Text(nombreEmpleadoAutentificado+'   Please Fill The Form'),
         ),
         body: Column(
           children: [
@@ -205,11 +205,16 @@ class _VacacionVistaState extends State<VacacionVista> {
     //Agregar boton para mostrar vacaciones_solicitudes
     return StreamBuilder(
         builder: (BuildContext context, AsyncSnapshot snapshot) {
-      return ElevatedButton(
+      return RaisedButton(
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+           
             child: Text('Enviar Solicitud'),
+            
           ),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+              elevation: 4.0,
+              color: Colors.cyanAccent,
           onPressed: () async {
             Vacacion vacacion = new Vacacion(
               fechaIni: controllerFini.text,
@@ -234,8 +239,8 @@ class _VacacionVistaState extends State<VacacionVista> {
                   context: context,
                   barrierDismissible: true,
                   builder: (context)=> AlertDialog(
-                    title: Text('ERROR! Ya no tienes dias disponibles para tu vacacion'),
-                    content: Text('Dias solicitados es mayor a los dias  disponibles'),
+                    title: Text('Porfavor Verifica los datos'),
+                    content: Text('Dias solicitados  mayor a dias  disponibles'),
                     
                     //backgroundColor: Colors.redAccent,
                     //shape: CircleBorder(),
@@ -252,12 +257,12 @@ class _VacacionVistaState extends State<VacacionVista> {
       // ignore: deprecated_member_use
       return RaisedButton(
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
             child: Text('Ver Solicitud'),
           ),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          elevation: 10.0,
+          elevation: 4.0,
           color: Colors.greenAccent,
           onPressed: () {
             Navigator.pushNamed(context, '/listadosolicitud');
@@ -271,17 +276,18 @@ class _VacacionVistaState extends State<VacacionVista> {
       // ignore: deprecated_member_use
       return RaisedButton(
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+            padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
             child: Text('Verificar'),
           ),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          elevation: 10.0,
+          elevation: 4.0,
           color: Colors.redAccent,
           onPressed: () {
             diasDisponibles();
             diasSolicitados();
           });
+          
     });
   }
 }

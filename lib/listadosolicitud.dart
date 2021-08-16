@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rrhh/Drawer/widget_drawer.dart';
 import 'package:rrhh/models/solicitudvacaciones.dart';
 import 'package:rrhh/services/listadovacaciones_services.dart';
+import 'package:rrhh/variables.dart';
 
 class VistaSolicitudes extends StatefulWidget {
   VistaSolicitudes({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class _VistaSolicitudesState extends State<VistaSolicitudes> {
   Widget build(BuildContext context) {
     return SafeArea(child: Scaffold(
       appBar: AppBar(
-        title: Text('Listado de Solicitudes Realizadas'),
+        title: Text('Listado de Solicitudes Realizadas De:  ' +nombreEmpleadoAutentificado),
       ),
       drawer: MenuLateral(),
        body: FutureBuilder<List<Vacacione>>(
@@ -30,6 +31,7 @@ class _VistaSolicitudesState extends State<VistaSolicitudes> {
                 Vacacione item = snapshot.data![index];
                  return Column(
                   children: [
+                    
                     ListTile(
                       leading: Icon(Icons.chevron_right),
                       title:  Text('Identificador de la  Solicitud:  '+ item.id.toString()),
@@ -55,8 +57,8 @@ class _VistaSolicitudesState extends State<VistaSolicitudes> {
                     ListTile(
                       leading: Icon(Icons.toggle_on),
                       title:  Text('Estado de la Solicitud:  '+ item.estado),
-                      
-                    ),
+                      tileColor: Colors.green,
+                      ),
                      ListTile(
                       
                       title:  Text('---------------------------------------------------------------'),

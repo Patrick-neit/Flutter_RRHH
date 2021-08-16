@@ -30,7 +30,6 @@ class _ListadoEmpleadoState extends State<ListadoEmpleado> {
           if (snapshot.hasData) {
             return ListView.builder(
               physics: const BouncingScrollPhysics(),
-             // itemCount: snapshot.data!.length,
               itemBuilder: (BuildContext context, int index) {
                 EmpleadoDatos item = snapshot.data!;
                 return Column(
@@ -42,7 +41,11 @@ class _ListadoEmpleadoState extends State<ListadoEmpleado> {
                     ),
                     ListTile(
                       leading: Icon(Icons.money_off_rounded),
-                      title:  Text('Sueldo Basico:  '+ item.sueldoBasico),
+                      title:  Text('Sueldo Basico:  '+ item.sueldoBasico+'  Bs'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.workspaces),
+                      title:  Text('Profesion:  '+  item.profesion),
                     ),
                     ListTile(
                       leading: Icon(Icons.contact_mail),
@@ -58,11 +61,36 @@ class _ListadoEmpleadoState extends State<ListadoEmpleado> {
                     ),
                     ListTile(
                       leading: Icon(Icons.date_range_rounded),
+                      title:  Text('Fecha de Contrato:  '+ item.fechaInicio.toString()),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.date_range_rounded),
                       title:  Text('Fecha de retiro:  '+ item.fechaFinal.toString()),
                     ),
+                    ListTile(
+                      
+                      title:  Text('---------------------------------------------------------------'),
+                    ),
+                    ListTile(
+                      
+                      title:  Text('---------------------------------------------------------------'),
+                    ),
+                    ListTile(
+                      
+                      title:  Text('---------------------------------------------------------------'),
+                    ),
+                    ListTile(
+                      
+                      title:  Text('---------------------------------------------------------------'),
+                    ),
+                    ListTile(
+                      
+                      title:  Text('---------------------------------------------------------------'),
+                    ),
+                    
                   ],
                 );
-                  
+              
               },
             );
           } else {

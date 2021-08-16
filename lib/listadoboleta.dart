@@ -40,25 +40,42 @@ class _BoletaVistaState extends State<BoletaVista> {
                       title:Text('Identificador:   '+item.id.toString(),)
                       ),
                     ListTile(
-                      title:Text('Nombre Completo:   '+item.primerApellido),
-                      subtitle: Text(''+item.segundoApellido),
+                      leading: Icon(Icons.near_me_rounded),
+                      title:Text('Nombre Completo:   '+item.primerApellido+'  ' +item.segundoApellido +'  '+item.nombres),
+                      
                     ),
                     ListTile(
-                      title:Text('Cargo:   '+item.cargo)
+                      leading: Icon(Icons.format_list_numbered_rtl_rounded),
+                      title:Text('Carnet Identidad:   '+item.ci+ '  ' +item.ciexp)
                     ),
                     ListTile( 
-                      title:Text('Carnet de identidad:   '+item.ci)
+                      leading: Icon(Icons.charging_station_rounded),
+                      title:Text('Cargo:   '+item.cargo)
                     ),
                     ListTile(
-                      title:Text('Salario Neto:   '+item.liquidoPagable)
+                      leading: Icon(Icons.money_rounded),
+                      title:Text('Salario Neto:   '+item.liquidoPagable+ ' Bs')
                     ),
                     ListTile(
+                      leading: Icon(Icons.photo_album_outlined),
                       title:Text('Estado Boleta:   '+item.pagado.toString()),
-                      subtitle:Text('Fecha de pago:   '+item.fechaPago.toString())
+                      subtitle: Text('No pagado'),
                     ),
                     ListTile(
+                      leading: Icon(Icons.date_range_sharp),
                       title:Text('Gestion:   '+item.periodo)
                     ),
+                    
+                    ListTile(
+                      leading: Icon(Icons.data_saver_off),
+                      title:Text('Fecha de pago:   '+item.fechaPago.toString()),
+                      subtitle: Text('No pagado'),
+                    ),
+                    ListTile(
+                      
+                      title:Text('-------------------------------------------------------------------')
+                    ),
+                    
                   ]
                 );
               },
