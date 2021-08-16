@@ -92,7 +92,7 @@ class _BoletaVistaState extends State<BoletaVista> {
                     ListTile(
                       leading: Icon(Icons.data_saver_off),
                       title:Text('Fecha de pago:   '+item.fechaPago.toString()),
-                      subtitle: Text('No pagado'),
+    
                     ),
                     ListTile(
                       
