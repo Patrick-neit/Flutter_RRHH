@@ -66,27 +66,14 @@ class _ListadoEmpleadoState extends State<ListadoEmpleado> {
                     ListTile(
                       leading: Icon(Icons.date_range_rounded),
                       title:  Text('Fecha de retiro:  '+ item.fechaFinal.toString()),
+                      
                     ),
+                    
                     ListTile(
                       
-                      title:  Text('---------------------------------------------------------------'),
+                      title:  Text('     '+ '\n\n'+ '\n\n'+'\n\n'+'\n\n'+'\n\n'),
                     ),
-                    ListTile(
-                      
-                      title:  Text('---------------------------------------------------------------'),
-                    ),
-                    ListTile(
-                      
-                      title:  Text('---------------------------------------------------------------'),
-                    ),
-                    ListTile(
-                      
-                      title:  Text('---------------------------------------------------------------'),
-                    ),
-                    ListTile(
-                      
-                      title:  Text('---------------------------------------------------------------'),
-                    ),
+                    
                     
                   ],
                 );
