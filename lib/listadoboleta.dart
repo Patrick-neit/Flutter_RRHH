@@ -36,6 +36,11 @@ class _BoletaVistaState extends State<BoletaVista> {
                 return Column(
                   children:[
                     ListTile(
+                      leading: Icon(Icons.date_range_sharp),
+                      title:Text('Gestion:   '+item.periodo)
+                    ),
+                    
+                    ListTile(
                       leading: Icon(Icons.anchor_rounded),
                       title:Text('NIT:   '+item.id.toString(),)
                       ),
@@ -56,18 +61,22 @@ class _BoletaVistaState extends State<BoletaVista> {
                       leading: Icon(Icons.money_rounded),
                       title:Text('Haber Basico:   '+item.haberBasico+ ' Bs')
                     ),
+                          ListTile(
+                      
+                      title:  Text('     '+ '\n\n'),
+                    ),
                     
                     ListTile(
                       leading: Icon(Icons.money_sharp),
-                      title:Text('Bono:   '+item.bono.toString()+' Bs')
+                      title:Text('    '+'Bono:   '+item.bono.toString()+' Bs')
                     ),
                     ListTile(
                       leading: Icon(Icons.mood_bad),
-                      title:Text('Descuento:   '+item.descuento.toString()+ ' Bs')
+                      title:Text('    '+'Descuento:   '+item.descuento.toString()+ ' Bs')
                     ),
                     ListTile(
                       leading: Icon(Icons.date_range_sharp),
-                      title:Text('Anticipo:   '+item.anticipo.toString()+' Bs')
+                      title:Text('    '+'Anticipo:   '+item.anticipo.toString()+' Bs')
                     
                     ),
                     ListTile(
@@ -76,16 +85,12 @@ class _BoletaVistaState extends State<BoletaVista> {
                     ),
                     ListTile(
                       leading: Icon(Icons.money_outlined),
-                      title:Text('Salario Neto:   '+item.liquidoPagable+ ' Bs')
+                      title:Text('    '+'Salario Neto:   '+item.liquidoPagable+ ' Bs')
                     ),
                     
                     ListTile(
                       leading: Icon(Icons.photo_album_outlined),
                       title:Text('Estado Boleta:   '+item.pagado.toString()),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.date_range_sharp),
-                      title:Text('Gestion:   '+item.periodo)
                     ),
                     
                     ListTile(
