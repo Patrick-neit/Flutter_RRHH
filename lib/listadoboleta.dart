@@ -37,7 +37,7 @@ class _BoletaVistaState extends State<BoletaVista> {
                   children:[
                     ListTile(
                       leading: Icon(Icons.anchor_rounded),
-                      title:Text('Identificador:   '+item.id.toString(),)
+                      title:Text('NIT:   '+item.id.toString(),)
                       ),
                     ListTile(
                       leading: Icon(Icons.near_me_rounded),
@@ -59,15 +59,15 @@ class _BoletaVistaState extends State<BoletaVista> {
                     
                     ListTile(
                       leading: Icon(Icons.money_sharp),
-                      title:Text('Bono:   '+item.bono+' Bs')
+                      title:Text('Bono:   '+item.bono.toString()+' Bs')
                     ),
                     ListTile(
                       leading: Icon(Icons.mood_bad),
-                      title:Text('Descuento:   '+item.descuento+ ' Bs')
+                      title:Text('Descuento:   '+item.descuento.toString()+ ' Bs')
                     ),
                     ListTile(
                       leading: Icon(Icons.date_range_sharp),
-                      title:Text('Anticipo:   '+item.anticipo+' Bs')
+                      title:Text('Anticipo:   '+item.anticipo.toString()+' Bs')
                     
                     ),
                     ListTile(
@@ -82,7 +82,6 @@ class _BoletaVistaState extends State<BoletaVista> {
                     ListTile(
                       leading: Icon(Icons.photo_album_outlined),
                       title:Text('Estado Boleta:   '+item.pagado.toString()),
-                      subtitle: Text('No pagado'),
                     ),
                     ListTile(
                       leading: Icon(Icons.date_range_sharp),

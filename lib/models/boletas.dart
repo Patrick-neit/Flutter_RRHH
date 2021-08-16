@@ -38,14 +38,14 @@ class BoletaElement {
         required this.ci,
         required this.ciexp,
         required this.haberBasico,
-        required this.bono,
-        required this.descuento,
-        required this.anticipo,
+         this.bono,
+         this.descuento,
+         this.anticipo,
         required this.liquidoPagable,
         required this.cargo,
         required this.periodo,
         
-        required this.pagado,
+         this.pagado,
          this.fechaPago,
     });
 
@@ -57,13 +57,13 @@ class BoletaElement {
     final String ci;
     final String ciexp;
     final String haberBasico;
-    final String bono;
-    final String descuento;
-    final String anticipo;
+    final String? bono;
+    final String? descuento;
+    final String? anticipo;
     final String liquidoPagable;
     final String cargo;
     final String periodo;
-    final int pagado;
+    final int? pagado;
     final String? fechaPago;
 
     factory BoletaElement.fromMap(Map<String, dynamic> json) => BoletaElement(
